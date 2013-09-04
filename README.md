@@ -6,11 +6,20 @@ _open data + open source + open architecture_
 
 We held our developer community kick-off on August 14. We had a great turn-out, a small room full of really talented, enthusiastic folk from around the Puget Sound Region.
 
+**Join our Developer Community Discussion**
+
+One of the first requests by developers is that we establish our forum for discussion of RDS topics. So ... without further ado ... here's our [RDS Developer Community Group](https://groups.google.com/forum/#!forum/soundtransit-rds) at Google. 
+
+Per feedback from the community, this will be a moderated discussion. For now, we are going to limit participation to active developers so please **include your API Access Key** in your membership request. Or provide a reasonably rationale reason to be included even if you don't have an access key.
+
+**Download Kick-off presentation and notes**
+
 RDS presented an overview of our roadmap for 2013 and the community then weighed in with a bunch of feedback on what they would like to see added, improved and changed in how regional transit data is managed and organized. We even came up with a couple of exciting "save the world - or at least make life better for transit riders" caliber ideas.
 
-Check it out. Here's a Wiki page with links to both the roadmap presentation and our notes from the discussion that followed.
+Check it out. Here's to the kick-off materials:
 
-<link goes here>
+* [roadmap presentation](https://github.com/SoundTransit/soundtransit-rds/wiki/docs/dev-meetup-2013-developer-kick-off-pptx.pdf) show the conceptual architecture for 2013-2014 platform build-out
+* [notes from the discussionroadmap presentation](https://github.com/SoundTransit/soundtransit-rds/wiki/docs/dev-meetup-feedback-writeup-2013-kick-off.pdf) including developer feedback and brainstorm session
 
 Please check it out !!!
 
