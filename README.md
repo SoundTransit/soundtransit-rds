@@ -2,8 +2,7 @@
 
 _open data + open source + open architecture_
 
-***
-## Recent Highlights**
+## Recent Highlights
 
 We held our developer community kick-off on August 14. We had a great turn-out, a small room full of really talented, enthusiastic folk from around the Puget Sound Region.
 
