@@ -7,9 +7,9 @@ open data + open source + open architecture_
 
 We held our developer community kick-off on August 14. We had a great turn-out, a small room full of really talented, enthusiastic folk from around the Puget Sound Region.
 
-RDS presented an overview of our roadmap for 2013 and the community then weighed in with a bunch of feedback on what they would like to see added, improved and changed in how regional transit data is managed and organized. We even cam up with a couple of "save the world - or at least make it better for transit riders" caliber ideas.
+RDS presented an overview of our roadmap for 2013 and the community then weighed in with a bunch of feedback on what they would like to see added, improved and changed in how regional transit data is managed and organized. We even came up with a couple of exciting "save the world - or at least make life better for transit riders" caliber ideas.
 
-We have posted a Wiki page with links to both the roadmap presentation and our notes from the discussion that followed.
+Check it out. Here's a Wiki page with links to both the roadmap presentation and our notes from the discussion that followed.
 
 <link goes here>
 
