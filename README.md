@@ -1,9 +1,11 @@
 **Sound Transit Regional Data Services**
 
-open data + open source + open architecture_
+# open data + open source + open architecture
 
 ***
 **Recent Highlights**
+
+## Recent Highligths
 
 We held our developer community kick-off on August 14. We had a great turn-out, a small room full of really talented, enthusiastic folk from around the Puget Sound Region.
 
@@ -22,7 +24,7 @@ Sound Transit Regional Data Services provides accurate, reliable access to trans
 
 Our Developer Community includes members from independent third-party organizations, partner transit agencies, and all other groups and individuals who make use of transit data provided by Sound Transit Regional Data Services.
 
-Our GitHub projects provides access to a range of resources having to do with Regional Data Services.
+### Our GitHub projects provides access to a range of resources having to do with Regional Data Services.
 
 * Our code repository presents open source solutions developed by Sound Transit staff or contributed by members of our developer community.
 
