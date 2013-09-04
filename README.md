@@ -19,7 +19,7 @@ RDS presented an overview of our roadmap for 2013 and the community then weighed
 Check it out. Here's to the kick-off materials:
 
 * [roadmap presentation](https://github.com/SoundTransit/soundtransit-rds/wiki/docs/dev-meetup-2013-developer-kick-off-pptx.pdf) show the conceptual architecture for 2013-2014 platform build-out
-* [notes from the discussionroadmap presentation](https://github.com/SoundTransit/soundtransit-rds/wiki/docs/dev-meetup-feedback-writeup-2013-kick-off.pdf) including developer feedback and brainstorm session
+* [notes from kick-off participation](https://github.com/SoundTransit/soundtransit-rds/wiki/docs/dev-meetup-feedback-writeup-2013-kick-off.pdf) including developer feedback and brainstorm session
 
 Please check it out !!!
 
