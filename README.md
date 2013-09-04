@@ -20,7 +20,9 @@ Sound Transit Regional Data Services provides accurate, reliable access to trans
 
 Our Developer Community includes members from independent third-party organizations, partner transit agencies, and all other groups and individuals who make use of transit data provided by Sound Transit Regional Data Services.
 
-### Our GitHub projects provides access to a range of resources having to do with Regional Data Services.
+## Developer Community Resources
+
+Our GitHub projects provides access to a range of resources having to do with Regional Data Services.
 
 * Our code repository presents open source solutions developed by Sound Transit staff or contributed by members of our developer community.
 
