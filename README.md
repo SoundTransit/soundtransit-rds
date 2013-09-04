@@ -14,7 +14,7 @@ Per feedback from the community, this will be a moderated discussion. For now, w
 
 **Download Kick-off presentation and notes**
 
-RDS presented an overview of our roadmap for 2013 and the community then weighed in with a bunch of feedback on what they would like to see added, improved and changed in how regional transit data is managed and organized. We even came up with a couple of exciting "save the world - or at least make life better for transit riders" caliber ideas.
+RDS presented an overview of our roadmap for 2013-2014. Developers then weighed in with a lively discussion including a bunch of feedback on what they would like to see added, improved and changed in how regional transit data is managed and organized. We even came up with a couple of exciting "save the world - or at least make life better for transit riders" caliber ideas.
 
 Check it out. Here's to the kick-off materials:
 
