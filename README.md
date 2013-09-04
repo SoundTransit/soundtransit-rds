@@ -1,6 +1,4 @@
-Welcome to the Sound Transit
-Regional Data Services
-Developer Community
+Sound Transit *Regional Data Services*
 
 _RDS = open data + open source + open architecture_
 
