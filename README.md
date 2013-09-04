@@ -1,6 +1,4 @@
-**Regional Data Services**
-
-Hosted by Sound Transit
+**Sound Transit Regional Data Services**
 
 _RDS = open data + open source + open architecture_
 
