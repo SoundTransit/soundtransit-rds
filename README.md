@@ -1,6 +1,6 @@
 **Welcome to the Sound Transit Regional Data Services Developer Community**
 
-__RDS = open data + open source + open architecture__
+_RDS = open data + open source + open architecture_
 
 Sound Transit Regional Data Services provides accurate, reliable access to transit data provided by partner agencies across the Puget Sound region. We make this data available to our Developer Community in order to facilitate innovation in applications and other services for transit riders. We actively collaborate with other transit agencies and regional groups, along with their developer communities, to spread innovation as broadly as possible.
 
