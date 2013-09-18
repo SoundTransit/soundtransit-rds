@@ -1,6 +1,6 @@
 # Sound Transit Regional Data Services
 
-_open data + open source + open architecture_
+###***open data + open source + open architecture***
 
 ## Recent Highlights
 
