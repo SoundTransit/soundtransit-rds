@@ -16,31 +16,18 @@
     limitations under the License.
 
 -->
-<html xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:s="/struts-tags"
-	xmlns:oba="/oba-tags">
+<html xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:s="/struts-tags">
 <jsp:directive.page contentType="text/html" />
 <head>
-<title>Supported Transit Agencies</title>
-<script type="text/javascript" src="${oba:url('/config.action')}"><jsp:text></jsp:text></script>
-<script type="text/javascript" src="${oba:resource('CommonResources')}"><jsp:text></jsp:text></script>
 </head>
 <body>
 
-<div id="container">
+<div id="content">
 <div class="panel">
 
-<div class="section"><oba:message key="agencies.ScheduleAndRealtimeProvidedWithPermission"/></div>
+<h3 class="warning">Exception!</h3>
 
-<div class="section">
-	<s:iterator value="model">
-	  <div>
-        <s:a href="%{agency.url}" cssStyle="font-weight: bold">
-		  <s:property value="agency.name" />
-		</s:a>
-      </div>
-	</s:iterator>
-</div>
+<span><s:property value="exception"/></span>
 
 </div>
 </div>

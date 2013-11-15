@@ -16,34 +16,24 @@
     limitations under the License.
 
 -->
-<html xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:s="/struts-tags"
-	xmlns:oba="/oba-tags">
+<html xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:s="/struts-tags" xmlns:oba="/oba-tags">
 <jsp:directive.page contentType="text/html" />
+<s:set name="now" value="getNow()" />
 <head>
-<title>Supported Transit Agencies</title>
-<script type="text/javascript" src="${oba:url('/config.action')}"><jsp:text></jsp:text></script>
-<script type="text/javascript" src="${oba:resource('CommonResources')}"><jsp:text></jsp:text></script>
+<title>Real-Time Arrival Information</title>
 </head>
 <body>
 
-<div id="container">
-<div class="panel">
+<s:iterator value="result.arrivalsAndDepartures">
+    <s:set var="routeName"><oba:routeName value="trip.route" /></s:set>
+    <div>
+      <s:property value="abbreviate(#routeName)" /><jsp:text> </jsp:text><s:property value="abbreviate(trip.tripHeadsign)" />: <s:property value="getMinutesLabel(top)" />
+    </div>            
+</s:iterator>
 
-<div class="section"><oba:message key="agencies.ScheduleAndRealtimeProvidedWithPermission"/></div>
-
-<div class="section">
-	<s:iterator value="model">
-	  <div>
-        <s:a href="%{agency.url}" cssStyle="font-weight: bold">
-		  <s:property value="agency.name" />
-		</s:a>
-      </div>
-	</s:iterator>
-</div>
-
-</div>
-</div>
+<s:if test="result.arrivalsAndDepartures.empty">
+    <div>No scheduled arrivals in the next 30 minutes.</div>
+</s:if>
 
 </body>
 </html>

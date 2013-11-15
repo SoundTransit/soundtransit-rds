@@ -21,29 +21,23 @@
 	xmlns:oba="/oba-tags">
 <jsp:directive.page contentType="text/html" />
 <head>
-<title>Supported Transit Agencies</title>
-<script type="text/javascript" src="${oba:url('/config.action')}"><jsp:text></jsp:text></script>
-<script type="text/javascript" src="${oba:resource('CommonResources')}"><jsp:text></jsp:text></script>
+<title>Debug</title>
 </head>
 <body>
 
-<div id="container">
-<div class="panel">
-
-<div class="section"><oba:message key="agencies.ScheduleAndRealtimeProvidedWithPermission"/></div>
-
 <div class="section">
-	<s:iterator value="model">
-	  <div>
-        <s:a href="%{agency.url}" cssStyle="font-weight: bold">
-		  <s:property value="agency.name" />
-		</s:a>
-      </div>
-	</s:iterator>
+  <h4>Details</h4>
+  <ul>
+    <li><span class="label">User #:</span> <s:property value="model.userId"/></li>
+    <li><span class="label">User Indices:</span>
+      <ul>
+      <s:iterator value="model.indices">
+        <li><span class="label"><s:property value="type"/>:</span> <s:property value="value"/></li>
+      </s:iterator>
+      </ul>
+    </li>
+  </ul>
 </div>
-
-</div>
-</div>
-
+	
 </body>
 </html>

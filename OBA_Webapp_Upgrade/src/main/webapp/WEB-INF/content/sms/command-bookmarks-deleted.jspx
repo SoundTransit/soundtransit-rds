@@ -21,29 +21,10 @@
 	xmlns:oba="/oba-tags">
 <jsp:directive.page contentType="text/html" />
 <head>
-<title>Supported Transit Agencies</title>
-<script type="text/javascript" src="${oba:url('/config.action')}"><jsp:text></jsp:text></script>
-<script type="text/javascript" src="${oba:resource('CommonResources')}"><jsp:text></jsp:text></script>
+<title>Bookmark Deleted Successfully</title>
 </head>
 <body>
-
-<div id="container">
-<div class="panel">
-
-<div class="section"><oba:message key="agencies.ScheduleAndRealtimeProvidedWithPermission"/></div>
-
-<div class="section">
-	<s:iterator value="model">
-	  <div>
-        <s:a href="%{agency.url}" cssStyle="font-weight: bold">
-		  <s:property value="agency.name" />
-		</s:a>
-      </div>
-	</s:iterator>
-</div>
-
-</div>
-</div>
+<p>Your bookmark was deleted.  Text "onebus #bookmarks" to see your bookmarks.</p>
 
 </body>
 </html>

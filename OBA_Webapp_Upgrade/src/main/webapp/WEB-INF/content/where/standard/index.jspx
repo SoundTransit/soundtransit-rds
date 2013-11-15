@@ -22,26 +22,149 @@
 <jsp:directive.page contentType="text/html" />
 <head>
 <title>OneBusAway</title>
-<jsp:element name="script">
-  <jsp:attribute name="type">text/javascript</jsp:attribute>
-  <jsp:attribute name="src">http://maps.google.com/maps?file=api&amp;v=2&amp;key=<s:property value="#configuration.googleMapsApiKey"/></jsp:attribute>
-  <jsp:text></jsp:text>
-</jsp:element>
-<script type="text/javascript"
-    src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;gwt=1&amp;key=ABQIAAAA1R_R0bUhLYRwbQFpKHVowhR6ggDNEO1rwvdlk5egWeAHsl3o5xT2ki4Fn-LXLHIrJfb8VmKQeIMh5g"><jsp:text></jsp:text></script>
-<script type="text/javascript"
-	src="org.onebusaway.webapp.gwt.WhereStopFinderStandardApplication.nocache.js"><jsp:text></jsp:text></script>
+
+<link rel="stylesheet" type="text/css" media="all" href="${oba:resource('/WEB-INF/css/where-standard-index.css')}"/> 
+<script type="text/javascript" src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;gwt=1&amp;key=ABQIAAAA1R_R0bUhLYRwbQFpKHVowhR6ggDNEO1rwvdlk5egWeAHsl3o5xT2ki4Fn-LXLHIrJfb8VmKQeIMh5g"><jsp:text></jsp:text></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyCO7b0-yPuOAHxZCLERGcTIyPLZvGrw0Qc&amp;sensor=false"><jsp:text></jsp:text></script>
 <script type="text/javascript" src="${oba:url('/config.action')}"><jsp:text></jsp:text></script>    
+<script type="text/javascript" src="${oba:resource('CommonResources')}"><jsp:text></jsp:text></script>
+<script type="text/javascript" src="${oba:resource('/js/oba-where-standard-common.js')}"><jsp:text></jsp:text></script>
+<script type="text/javascript" src="${oba:resource('/js/oba-where-standard-view.js')}"><jsp:text></jsp:text></script> 
+
+<!--
+<script type="text/javascript" src="commonresources.js"><jsp:text></jsp:text></script>
+<script type="text/javascript" src="oba-where-standard-common.js"><jsp:text></jsp:text></script>
+<script type="text/javascript" src="oba-where-standard-view.js"><jsp:text></jsp:text></script>
+-->
+
+
+<script type="text/javascript">
+
+$(window).resize(function() {
+	sizeWindow();
+});
+
+
+$(document).ready(function() {
+
+	// set the map size
+	sizeWindow();	
+	
+    // get the querystring args
+    var args = parseURL(window.location.href);
+
+    // set the search query input value
+    if(args.q)
+    {
+  		$("#q").val(decodeURIComponent(args.q));
+	}
+
+	// create the map element
+	map = OBA.Maps.map($("#map"),{zoom : 7});
+    
+    // handle view operations after map is ready
+    OBA.Maps.mapReady(map, function () {
+    	
+	    var data = {};
+	    data.args = args;	    
+	    data.map = map;
+	    
+	    /*
+	    if($("#defaultLat").val() != "NaN")
+	    {
+		    data.defaultLat = $("#defaultLat").val();
+		    data.defaultLon = $("#defaultLon").val();
+			data.defaultZoom = 15;    	
+    	}
+	    */
+	    
+	    // set the current view
+	    oba_where_standard_view(data);
+	    
+    });
+    
+	// handle current view link change when map view changes
+    google.maps.event.addListener(map, 'projection_changed', function() {setCurrentViewLink(map, args);});
+    google.maps.event.addListener(map, 'bounds_changed', function() {setCurrentViewLink(map, args);});
+    
+	// handle search form submit
+    $('#searchform').submit(function() {
+		var centerpoint = map.getCenter();
+		var url = buildURL({"m":"query","q":$("#q").val(),"qll":centerpoint.lat() + "," + centerpoint.lng()});
+		location.href=url;
+		location.reload();
+		return false;
+	});	
+    
+});
+  
+</script>
 </head>
 <body>
-<script type="text/javascript">
-var StopFinderConfig ={
-    BoundingElementId: 'page'   
-}
-</script>
-<div id="content"><jsp:text></jsp:text>
+<s:push value="user">
+
+<!-- set the user's default location --> 
+<s:hidden name="defaultLat" value="%{defaultLocationLat}"/>
+<s:hidden name="defaultLon" value="%{defaultLocationLon}"/>
+
+<div id="toppanel">
+<div class="resultstitle">Where is Your Bus?</div>	
+<div id="searchformpanel">
+	<div>
+		<div class="gwt-Label">Search for stops:</div>
+		<form id="searchform">
+			<div>
+				<input type="text" class="gwt-TextBox" size="55" name="q" id="q"/><button type="submit" class="gwt-SubmitButton">Search</button>
+			</div>
+		</form>
+		<div id="searchcaption">By address (ex. "3rd and pike") or route number (ex. "44" or "71").</div>
+	</div>
 </div>
-<iframe src="javascript:''" id="__gwt_historyFrame"
-	style="width: 0; height: 0; border: 0"><jsp:text></jsp:text></iframe>
+<div id="currentviewlinkpanel"><a id="currentviewlink" href="#">Link to the current view</a></div>
+</div>
+<div id="contentpanel">
+	<div id="defaultsearchresults" style="display:none;">
+		<div>
+			<p> Use this tool to find real-time arrival information for public transit stops from all the <a href="agencies.action">transit agencies</a> supported by OneBusAway. </p> 
+			<p> You can quickly search for stops by <em>address</em>, <em>route</em>, or <em>stop number</em>. You can also zoom into the map to see stops for a specific location. </p> 
+		</div>
+	</div>
+	<div id="searchresults"><jsp:text></jsp:text></div>
+  <div id="map"><jsp:text></jsp:text></div>
+  <div class="StopInfoWindowTemplate" style="display:none;">
+    <span class="stopName">Stop Name</span><br/>
+    <span class="stopDescription"><span class="stopCode">Stop # {0}</span><span class="stopDirection"> - {0} bound</span></span>
+    <div class="stopContent"><p><a href="stop.action">Real-time arrival info</a><br/><a href="schedule.action">Complete timetable</a></p></div>
+    <div class="routesSection">
+      <div>Routes:</div>
+    </div>
+    <div style="clear:both"><jsp:text></jsp:text></div>
+  </div>  
+</div>
+
+<div style="left: 348px; top: 164px; position: absolute; overflow: visible; display: none" class="gwt-PopupPanel">
+	<div class="popupContent">
+		<div class="GEX3HBECEN-org-onebusaway-webapp-gwt-where_library-view-constraints-SetInitialSearchLocationPopupPanel_MyUiBinderImpl_GenCss_style-content">
+			<h2>Welcome!</h2>
+			<p>It looks like this is your first time using OneBusAway. We need a little more information so that we can give you search results relevant to your area.</p> 
+			<p>Please enter your zip code:</p> 
+			<form id="setLocationForm">
+				<div>
+					<input type="text" class="gwt-TextBox" name="location"/>
+					<button type="submit" class="gwt-SubmitButton" id="setLocationButton">Set Location</button>
+					<button type="button" class="gwt-Button">Cancel</button>
+				</div>
+			</form> 
+			<div style="display: none;"><jsp:text></jsp:text></div>
+			<p>We use this as your default search location.</p> 
+			<p> How do we use it? Say you search for route 10. Did you mean the one in <a href="index.html#m(route)route(1_10)">Seattle</a>, the one in <a href="index.html#m(route)route(3_10)">Tacoma</a>, 
+			or a route at one of the other <a href="agencies.action">transit agencies</a> supported by OneBusAway? We use your default 
+			search location to help decide. </p> 
+			<p> You can manage your default search location in more detail at your <a href="../../user/index.action">Personal Settings</a> page. </p>
+		</div>
+	</div>
+</div>
+</s:push>
+
 </body>
 </html>
